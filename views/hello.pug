@@ -1,0 +1,15 @@
+extends layout
+
+//- block header
+//- 	p my header
+
+block content
+	div.wrapper.anotherclass
+		- dog ? dog = dog.toUpperCase() : dog = 'Whatever' // Java Script here
+		p.hello hello my name is #{name}, and dog is #{dog}
+		span#yo Yo!
+		img.dogclass(src="dog.jpg", alt=`Dog ${dog}`)
+
+	h2
+		| Helllo
+		em How are you?

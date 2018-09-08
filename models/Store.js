@@ -29,4 +29,5 @@ storeSchema.pre('save', function(next) {
 	next();
 });
 
+// Export store so that it can be used in storeController.js
 module.exports = mongoose.model('Store', storeSchema);

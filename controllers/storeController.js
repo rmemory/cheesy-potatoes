@@ -2,6 +2,17 @@ const mongoose = require('mongoose');
 // Import model, which is registered in start.js
 const Store = mongoose.model('Store');
 
+// router.get('/', storeController.myMiddleware, storeController.homePage);
+// exports.myMiddleware = (req, res, next) => {
+//  req.name = "bob";
+//  // open application tab, cookies
+//  res.cookie('mycookie', 'some value', {maxAge: 900000});
+//  if (req.name === 'bob') {
+//    throw Error('Oops');
+//  }
+//  next();
+// }
+
 exports.homePage = (req, res) => {
 	// console.log(req.name);
 	res.render('index', {title: 'Wow'});

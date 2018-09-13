@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise; // Use async/await to wait for queries
 const slug = require('slugs');
 
+// By default, monogodb is strict and requires a schema (not willy nilly)
 const storeSchema = new mongoose.Schema({
 	name: {
 		type: String,

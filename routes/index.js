@@ -17,6 +17,11 @@ const { catchErrors } = require('../handlers/errorHandlers')
 //  response.send(req.params.name);
 // })
 
+// templating uses pug or jade (same thing)
+// router.get('/', (request, response, next) => {
+//  response.render('hello', {myLocalVar: someval});
+// })
+
 router.get('/', storeController.homePage);
 router.get('/add', storeController.addStore);
 

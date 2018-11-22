@@ -16,13 +16,9 @@ const errorHandlers = require('./handlers/errorHandlers');
 // create our Express app
 const app = express();
 
-// view templating engine setup
+// view engine setup
 app.set('views', path.join(__dirname, 'views')); // this is the folder where we keep our pug files
 app.set('view engine', 'pug'); // we use the engine pug, mustache or EJS work great too
-
-/* 
- * Application wide middleware .... anything app.use
- */
 
 // serves up static files from the public folder. Anything in public/ will just be served up as the file it is
 app.use(express.static(path.join(__dirname, 'public')));
@@ -34,7 +30,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Exposes a bunch of methods for validating data. Used heavily on userController.validateRegister
 app.use(expressValidator());
 
-// populates res.cookie() with any cookies that came along with the request
+// populates req.cookies with any cookies that came along with the request
 app.use(cookieParser());
 
 // Sessions allow us to store data on visitors from request to request
@@ -71,7 +67,6 @@ app.use((req, res, next) => {
 
 // After allllll that above middleware, we finally handle our own routes!
 app.use('/', routes);
-//app.use('/admin', adminRoutes);
 
 // If that above routes didnt work, we 404 them and forward to error handler
 app.use(errorHandlers.notFound);
